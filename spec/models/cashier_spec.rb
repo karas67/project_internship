@@ -2,10 +2,11 @@ require 'rails_helper'
 
 RSpec.describe Cashier, type: :model do
   it 'should be valid' do
-    expect(user = Cashier.create(first_name:'Ivan', last_name:'Ivanov', 
-    email:'ka@ail.com', password:'44554444').valid?).to eq(true)
+    user = Cashier.create(first_name:'Ivan', last_name:'Ivanov', 
+    email:'ka@ail.com', password:'44554444')
+    expect(user).to be_valid
   end
-  
+
   context 'associations' do
     it { should have_many(:orders) }
   end

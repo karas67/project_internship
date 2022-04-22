@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_04_20_183114) do
+ActiveRecord::Schema.define(version: 2022_04_22_131919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,14 @@ ActiveRecord::Schema.define(version: 2022_04_20_183114) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "details", force: :cascade do |t|
+    t.string "name"
+    t.float "price"
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "managers", force: :cascade do |t|
     t.string "first_name"
     t.string "last_name"
@@ -31,6 +39,17 @@ ActiveRecord::Schema.define(version: 2022_04_20_183114) do
     t.string "password"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "order_details", force: :cascade do |t|
+    t.bigint "order_id", null: false
+    t.bigint "detail_id", null: false
+    t.float "amount"
+    t.integer "quantity"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["detail_id"], name: "index_order_details_on_detail_id"
+    t.index ["order_id"], name: "index_order_details_on_order_id"
   end
 
   create_table "orders", force: :cascade do |t|
@@ -43,4 +62,6 @@ ActiveRecord::Schema.define(version: 2022_04_20_183114) do
     t.index ["cashier_id"], name: "index_orders_on_cashier_id"
   end
 
+  add_foreign_key "order_details", "details"
+  add_foreign_key "order_details", "orders"
 end
