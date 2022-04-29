@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First name:</strong>
+  <%= @cashier.first_name %>
+</p>
+
+<p>
+  <strong>Last name:</strong>
+  <%= @cashier.last_name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @cashier.email %>
+</p>
+
+<p>
+  <strong>Password:</strong>
+  <%= @cashier.password %>
+</p>
+
+<%= link_to 'Edit', edit_cashier_path(@cashier) %> |
+<%= link_to 'Back', cashiers_path %>

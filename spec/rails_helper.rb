@@ -31,6 +31,26 @@ rescue ActiveRecord::PendingMigrationError => e
   exit 1
 end
 RSpec.configure do |config|
+  # This part turns off the default RSpec database cleansing strategy.
+  config.use_transactional_fixtures = true
+
+  config.before(:suite) do
+    # This says that before the entire test suite runs, clear the test database out completely.
+    # This gets rid of any garbage left over from interrupted or poorly-written tests - a common source of surprising test behavior.
+    DatabaseCleaner.clean_with(:truncation)
+    # This part sets the default database cleaning strategy to be transactions.
+    # Transactions are very fast, and for all the tests where they do work - that is, any test where the entire test runs in the RSpec process - they are preferable.
+    DatabaseCleaner.strategy = :transaction
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+  
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
+
   config.include FactoryBot::Syntax::Methods
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

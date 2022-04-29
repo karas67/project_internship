@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>OrderDetails</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id order details</th>
+      <th>Amount</th>
+      <th>Quantity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @order_details.each do |order_detail| %>
+      <tr>
+        <td><%= order_details.id_change %></td>
+        <td><%= order_details.amount %></td>
+        <td><%= order_details.quantity %></td>
+        <td><%= link_to 'Show', order_details %></td>
+        <td><%= link_to 'Edit', edit_order_details_path(order_details) %></td>
+        <td><%= link_to 'Destroy', order_details, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New order_detail', new_order_detail_path %>
