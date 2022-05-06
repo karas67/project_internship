@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Cashier:</strong>
+  
+  <%= link_to(@cashier.first_name, cashier_path(@cashier)) %>
+</p>
+<p>
   <strong>Date:</strong>
   <%= @order.date %>
 </p>
