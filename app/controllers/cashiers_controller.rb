@@ -7,10 +7,8 @@ class CashiersController < ApplicationController
     end
   
     # GET /cashiers/1 or /cashiers/1.json
-    def show
-      @ashier = Cashier.find(params[:id])
-    end
-  
+    def show; end
+      
     # GET /cashiers/new
     def new
       @cashier = Cashier.new

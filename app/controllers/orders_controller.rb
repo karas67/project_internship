@@ -1,21 +1,24 @@
 class OrdersController < ApplicationController
   before_action :order, only: %i[show edit update destroy]
+  before_action :prepare_variables, only: %i[create edit new update]
   
   def index
     @orders = Order.all
   end
 
-  def show; end
+  def show
+    @cashier = @order.cashier
+  end
 
   def new
     @order = Order.new
   end
 
-  def edit; end
+  def edit
+  end
 
   def create
     @order = Order.new(order_params)
-
     respond_to do |format|
       if @order.save
         format.html { redirect_to order_url(@order), notice: "Order was successfully created." }
@@ -49,6 +52,10 @@ class OrdersController < ApplicationController
   end
 
   private
+
+  def prepare_variables
+    @cashiers = Cashier.all
+  end
 
   def order
     @order ||= Order.find(params.permit(:id)[:id].to_i)

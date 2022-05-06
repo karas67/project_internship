@@ -5,18 +5,16 @@
 <table>
   <thead>
     <tr>
-      <th>Id detail</th>
       <th>Name</th>
       <th>Price</th>
       <th>Quantity</th>
-      <th colspan="2"></th>
+      <th colspan="4"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @details.each do |detail| %>
       <tr>
-        <td><%= detail.id_change %></td>
         <td><%= detail.name %></td>
         <td><%= detail.price %></td>
         <td><%= detail.quantity %></td>

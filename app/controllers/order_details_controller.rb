@@ -1,19 +1,25 @@
 class OrderDetailsController < ApplicationController
   before_action :order_detail, only: %i[show edit update destroy]
+  before_action :prepare_variables, only: %i[create edit new update]
 
   def index
     @order_details = OrderDetail.all
   end
 
-  def show; end
+  def show
+    @order = @order_detail.order
+    @detail = @order_detail.detail
+  end
 
   def new
     @order_detail = OrderDetail.new
   end
 
-  def edit; end
+  def edit 
+  end
 
   def create
+    
     @order_detail = OrderDetail.new(order_detail_params)
 
     respond_to do |format|
@@ -49,6 +55,11 @@ class OrderDetailsController < ApplicationController
   end
 
   private
+
+  def prepare_variables
+    @details = Detail.all
+    @orders = Order.all
+  end
 
   def order_detail
     @order_detail ||= OrderDetail.find(params.permit(:id)[:id].to_i)
