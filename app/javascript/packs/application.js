@@ -16,6 +16,8 @@ require("../stylesheets/application.scss")
 
 require("@popperjs/core")
 
+import '../stylesheets/application.scss'
+
 import "bootstrap"
 
 // Import the specific modules you may need (Modal, Alert, etc)
