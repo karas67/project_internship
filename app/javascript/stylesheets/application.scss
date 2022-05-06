@@ -1,2 +1,30 @@
 @import "~bootstrap/scss/bootstrap";
 @import 'styles';
+
+body {
+  background-color: #e4f7ec;
+}
+
+a:hover {
+  color: #e4d6d6;
+}
+
+thead {
+  background-color: rgb(178, 245, 223);
+  
+}
+th {
+   padding-right: 10px;
+   padding-left: 3px;
+ }
+
+.field {
+  display: flex;
+  justify-content: space-between;
+  max-width: 360px;
+}
+
+select {
+  max-width: 200px;
+  padding: 4px
+}
