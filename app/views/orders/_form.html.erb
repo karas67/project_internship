@@ -1,4 +1,4 @@
-<%= form_with(model: order) do |form| %>
+<%= form_with(model: [@order]) do |form| %>
   <% if order.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(order.errors.count, "error") %> prohibited this order from being saved:</h2>
@@ -11,10 +11,16 @@
     </div>
   <% end %>
 
-
+  <div class="field">
+    <%= form.label :cashier_name %>
+    <%= form.collection_select :cashier_id, @cashiers, :id, :first_name %>
+  </div>    
+  
   <div class="field">
     <%= form.label :date %>
-    <%= form.text_field :date %>
+    <span>
+      <%= form.date_select :date %>
+    </span>
   </div>
 
   <div class="field">
