@@ -5,16 +5,16 @@ body {
 }
 
 a:hover {
-  color: #e4d6d6;
+  color: #5135f0;
 }
 
 thead {
   background-color: rgb(178, 245, 223);
   
 }
-th {
+th, td{
    padding-right: 10px;
-   padding-left: 3px;
+   margin-right: 10px;
  }
 
 .field {
