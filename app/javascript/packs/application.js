@@ -16,8 +16,6 @@ require("../stylesheets/application.scss")
 
 require("@popperjs/core")
 
-import '../stylesheets/application.scss'
-
 import "bootstrap"
 
 // Import the specific modules you may need (Modal, Alert, etc)
@@ -30,7 +28,6 @@ document.addEventListener("turbolinks:load", () => {
   var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
     return new Tooltip(tooltipTriggerEl)
   })
-
   var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
   var popoverList = popoverTriggerList.map(function(popoverTriggerEl) {
     return new Popover(popoverTriggerEl)
