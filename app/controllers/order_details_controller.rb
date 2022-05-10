@@ -1,4 +1,5 @@
 class OrderDetailsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :order_detail, only: %i[show edit update destroy]
   before_action :prepare_variables, only: %i[create edit new update]
 
