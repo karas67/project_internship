@@ -1,4 +1,5 @@
 class CashiersController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :set_cashier, only: %i[show edit update destroy]
   
     # GET /cashiers or /cashiers.json
@@ -49,8 +50,10 @@ class CashiersController < ApplicationController
   
     # DELETE /cashiers/1 or /cashiers/1.json
     def destroy
+      raise StandardError, 'Cashier can\'\t deleted because it have order' if @cashier.orders.count > 0
+
       @cashier.destroy
-  
+      
       respond_to do |format|
         format.html { redirect_to cashiers_url, notice: "Cashier was successfully destroyed." }
         format.json { head :no_content }

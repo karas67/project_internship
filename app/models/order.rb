@@ -4,5 +4,5 @@ class Order < ApplicationRecord
     validates :amount, presence: true, numericality: true 
 
     belongs_to :cashier
-    has_many :order_details
+    has_many :order_details, dependent: :destroy
 end
