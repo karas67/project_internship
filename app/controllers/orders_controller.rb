@@ -4,7 +4,7 @@ class OrdersController < ApplicationController
   before_action :prepare_variables, only: %i[create edit new update]
   
   def index
-    @orders = Order.all
+    @orders = Order.all.page params[:page]
   end
 
   def show

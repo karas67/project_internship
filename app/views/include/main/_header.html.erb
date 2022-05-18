@@ -1,0 +1,23 @@
+<header class="p-3 bg-dark text-white">
+  <div class="container">
+    <nav class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><%= link_to 'Home', root_path, class: 'nav-link px-2 text-white' %></li>
+        <li><%= link_to 'Managers', managers_path, class: 'nav-link px-2 text-white' %></li>
+        <li><%= link_to 'Cashiers', cashiers_path, class: 'nav-link px-2 text-white' %></li>
+        <li><%= link_to 'Orders', orders_path, class: 'nav-link px-2 text-white' %></li>
+        <li><%= link_to 'Details', details_path, class: 'nav-link px-2 text-white' %></li>
+        <li><%= link_to 'Order Details', order_details_path, class: 'nav-link px-2 text-white' %></li>
+      </ul>
+
+      <ul class="nav col-3 col-lg-auto  mb-2 justify-content-end mb-md-0">
+      <% if user_signed_in? %>
+          <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'nav-link px-2 text-white' %></li>
+        <% else %>
+          <li><%= link_to 'Get Started', new_user_session_path, class: 'nav-link px-2 text-white' %></li>
+          <li><%= link_to 'Log In', new_user_registration_path, class: 'nav-link px-2 text-white' %></li>
+        <% end %>
+      </ul>
+    </nav>
+  </div>
+</header>

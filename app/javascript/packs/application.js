@@ -12,11 +12,15 @@ Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
 
-require("../stylesheets/application.scss")
 
+import 'bootstrap-icons/font/bootstrap-icons.css'
+
+require("../stylesheets/application.scss")
+require.context('../images', true)
 require("@popperjs/core")
 
 import "bootstrap"
+
 
 // Import the specific modules you may need (Modal, Alert, etc)
 import { Tooltip, Popover } from "bootstrap"
