@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
   include Pundit
-  include ErrorHandling  
+  include ErrorHandling
 end
  
