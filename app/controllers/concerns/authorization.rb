@@ -1,5 +1,5 @@
 module Authrization
-  extend ActiveSuport::Concern
+  # extend ActiveSupport::Concern
 
   include do
     include Pundit
