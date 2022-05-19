@@ -1,6 +1,5 @@
 class ApplicationController < ActionController::Base
-  #include Authrization
+  include Pundit
   include ErrorHandling
-  
 end
  
