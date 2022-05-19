@@ -6,6 +6,27 @@ require "active_support/core_ext/integer/time"
 # and recreated between test runs. Don't rely on the data there!
 
 Rails.application.configure do
+
+  # Disable request forgery protection in test environment.
+  config.action_controller.allow_forgery_protection = false
+  config.action_mailer.perform_caching = false
+  # Tell Action Mailer not to deliver emails to the real world.
+  # The :test delivery method accumulates sent emails in the
+  # ActionMailer::Base.deliveries array.
+  config.action_mailer.delivery_method = :test
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_options = { from: “edit_to_reflect_your_gmail@gmail.com” }
+  config.action_mailer.smtp_settings = {
+  address: “smtp.gmail.com”,
+  port: 25,
+  authentication: “plain”,
+  enable_starttls_auto: true,
+  user_name: ENV['GMAIL_USERNAME'],
+  password: ENV['GMAIL_PASSWORD'],
+  domain: ENV['DOMAIN_NAME'],
+  openssl_verify_mode: 'none',
+  }
+
   # Settings specified here will take precedence over those in config/application.rb.
 
   config.cache_classes = false
