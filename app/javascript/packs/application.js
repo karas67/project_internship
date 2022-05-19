@@ -13,8 +13,8 @@ Turbolinks.start()
 ActiveStorage.start()
 
 require("../stylesheets/application.scss")
-require.context('../images', true)
 require("@popperjs/core")
+require.context('../images', true)
 
 import "bootstrap"
 import 'bootstrap/js/dist/dropdown'
