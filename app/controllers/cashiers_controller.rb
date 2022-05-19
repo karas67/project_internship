@@ -1,5 +1,5 @@
 class CashiersController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  # before_action :authenticate_user!, except: [:index, :show]
   before_action :set_cashier, only: %i[show edit update destroy]
   
   # GET /cashiers or /cashiers.json
