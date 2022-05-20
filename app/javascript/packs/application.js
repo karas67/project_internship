@@ -14,7 +14,7 @@ require.context('../images', true)
 import "bootstrap"
 import 'bootstrap/js/dist/dropdown'
 import 'bootstrap-icons/font/bootstrap-icons.css'
-
+import "chartkick/chart.js"
 
 // Import the specific modules you may need (Modal, Alert, etc)
 import { Tooltip, Popover } from "bootstrap"
