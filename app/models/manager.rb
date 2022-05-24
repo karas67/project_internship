@@ -4,7 +4,4 @@ class Manager < ApplicationRecord
     validates :password, presence: true, length: {in: 6..20}
     validates :email, presence: true, uniqueness: true, format: { with:
     /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/, message: 'Only emails allowed' }
-
-    devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable, :confirmable
 end
