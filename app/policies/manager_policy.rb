@@ -1,13 +1,6 @@
-class UserPolicy < ApplicationPolicy
-  class Scope < Scope
-    # NOTE: Be explicit about which records you allow access to!
-    # def resolve
-    #   scope.all
-    # end
-  end
-
+class ManagerPolicy < ApplicationPolicy
   def index?
-    user.present?
+    
   end
 
   def show?
