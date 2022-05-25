@@ -35,6 +35,10 @@ class ApplicationPolicy
   def destroy?
     false
   end
+  
+  def is_admin?
+    user.is_a?(Admin)
+  end
 
   class Scope
     def initialize(user, scope)

@@ -11,28 +11,8 @@ class ManagersController < ApplicationController
   def show
   end
 
-  # GET /managers/new
-  def new
-    @manager = Manager.new
-  end
-
   # GET /managers/1/edit
   def edit
-  end
-
-  # POST /managers or /managers.json
-  def create
-    @manager = Manager.new(manager_params)
-
-    respond_to do |format|
-      if @manager.save
-        format.html { redirect_to manager_url(@manager), notice: "Manager was successfully created." }
-        format.json { render :show, status: :created, location: @manager }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @manager.errors, status: :unprocessable_entity }
-      end
-    end
   end
 
   # PATCH/PUT /managers/1 or /managers/1.json
@@ -66,6 +46,6 @@ class ManagersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def manager_params
-      params.require(:manager).permit(:id_manager, :first_name, :last_name, :email, :password)
+      params.require(:manager).permit(:id_manager, :first_name, :last_name, :email, :encrypted_password)
     end
 end
