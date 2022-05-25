@@ -3,8 +3,8 @@ class OrdersController < ApplicationController
   before_action :prepare_variables, only: %i[create edit new update]
   
   def index
-    #@orders = Order.all.page params[:page]
-    @orders = policy_scope(Order)
+    @orders = Order.all.page params[:page]
+    #@orders = policy_scope(Order)
   end
 
   def show
