@@ -1,11 +1,14 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  Rails.application.routes.default_url_options[:host] = 'afternoon-dusk-26679.herokuapp.com'
   config.action_mailer.delivery_method = :smtp
-  #config.action_mailer.smtp_settings = { :address => '127.0.0.1', :port => 1025 }
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default :charset => "utf-8"
+  # config.action_mailer.smtp_settings = { :address => '127.0.0.1', :port => 1025 }
   # config.action_mailer.default_url_options = { :host => 'afternoon-dusk-26679.herokuapp.com' }
-  # config.action_mailer.perform_deliveries = true
-  # config.action_mailer.default :charset => "utf-8"
+  
+  
   # config.action_mailer.smtp_settings = {
   #   address:              'smtp.gmail.com',
   #   port:                 587,
@@ -14,7 +17,9 @@ Rails.application.configure do
   #   password:             'jnhpzggzhnvwpgeo',
   #   authentication:       'plain',
   #   enable_starttls_auto: true,}
+  # config.action_mailer.default_url_options = { :host => 'afternoon-dusk-26679.herokuapp.com' }
 
+  # config.action_mailer.smtp_settings = { :address => '127.0.0.1', :port => 1025 }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # In the development environment your application's code is reloaded any time
@@ -51,10 +56,6 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
-  
-  config.action_mailer.default_url_options = { :host => 'afternoon-dusk-26679.herokuapp.com' }
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { :address => '127.0.0.1', :port => 1025 }
   
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
