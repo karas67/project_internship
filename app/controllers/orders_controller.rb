@@ -9,7 +9,7 @@ class OrdersController < ApplicationController
 
   def show
     @cashier = @order.cashier
-    authorize(@order)
+    #authorize(@order)
   end
 
   def new
