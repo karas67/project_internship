@@ -54,14 +54,14 @@
 	cursor:pointer;
 	position:relative;
 }
-@media (max-width: 1150px) {
+@media (max-width: 1440px) {
   .box{
     left:50%;
     top:50%;
     transform: translate(-50%,-70%);
     background-color: rgba(0, 0, 0, 0.90);
     border-radius:5px;
-    padding:30px 30px;
+    padding:25px;
   }
 }
 
