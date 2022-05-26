@@ -1,0 +1,56 @@
+.box{
+	position:absolute;
+	left:50%;
+	top:50%;
+	transform: translate(-50%,-75%);
+  background-color: rgba(0, 0, 0, 0.75);
+	border-radius:5px;
+	padding:60px 80px;
+  font-family: 'Noto Sans', sans-serif;
+  color:#fff;
+}
+.box a {
+  color:#fff;
+}
+.box li {
+  color:rgba(0, 0, 0, 0.75);
+  list-style-type:none;
+}
+.box .field{
+	position:relative;
+	margin-bottom:25px;
+}
+.box .field label{
+	position:absolute;
+	top:0px;
+	left:0px;
+	font-size:16px;
+	color:#fff;	
+	transition: all 0.5s ease-in-out;
+}
+.box .field input{ 
+  border:0;
+  border-bottom:1px solid #555;  
+  background:transparent;
+  width:100%;
+  padding:8px 0 5px 0;
+  font-size:16px;
+  color:#fff;
+}
+.box .field input:focus{ 
+ border:none;	
+ outline:none;
+ border-bottom:1px solid #e74c3c;	
+}
+.actions input{
+	color:#fff;
+	background-color:#e74c3c;
+	outline: none;
+  border: 0;
+  color: #fff;
+	padding:10px 20px;
+	text-transform:uppercase;
+	border-radius:2px;
+	cursor:pointer;
+	position:relative;
+}

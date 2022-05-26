@@ -15,14 +15,15 @@
  */
 
 @import "~bootstrap/scss/bootstrap";
-
+@import 'device.scss';
 
 body {
   display: flex;
   flex-direction: column;
   background-color: azure;
   color: #333;
-  min-height: 100vh; }
+  min-height: 100vh; 
+  font-family: 'Noto Sans', sans-serif;}
   
 main {
   padding-bottom: 20px;
@@ -35,12 +36,16 @@ table {
 header .container {
   max-width: 90%;
 }
+header .container ul{
+ display: flex;
+ align-items: center;
+}
+
 .statistics {
   font-size: 19px;
 }
 
 body, p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
   font-size: 15px;
   line-height: 18px; }
 
@@ -103,10 +108,6 @@ div.actions {
 label {
   display: block; }
 
-.container{
-  max-width: 1170px;
-  margin:auto;
-}
 .row{
   max-width: 80%;
   margin:auto;
@@ -143,6 +144,10 @@ footer ul{
   box-sizing: border-box;
   width: 50px;
 }
+
+li {
+  list-style-type: none;}
+
 .footer-col ul li:not(:last-child){
   margin-bottom: 10px;
 }
