@@ -8,7 +8,6 @@
           <li><%= link_to 'Cashiers', cashiers_path, class: 'nav-link px-2 text-white' %></li>
           <li><%= link_to 'Orders', orders_path, class: 'nav-link px-2 text-white' %></li>
           <li><%= link_to 'Details', details_path, class: 'nav-link px-2 text-white' %></li>
-          <li><%= link_to 'Order Details', order_details_path, class: 'nav-link px-2 text-white' %></li>
         </ul>
         <ul class="nav col-3 col-lg-auto  mb-2 justify-content-end mb-md-0">
           <%= current_admin.email %>
@@ -19,11 +18,21 @@
           <li><%= link_to 'Home', root_path, class: 'nav-link px-2 text-white' %></li>
           <li><%= link_to 'Orders', orders_path, class: 'nav-link px-2 text-white' %></li>
           <li><%= link_to 'Details', details_path, class: 'nav-link px-2 text-white' %></li>
-          <li><%= link_to 'Order Details', order_details_path, class: 'nav-link px-2 text-white' %></li>
+          <li><%= link_to 'Cashiers', cashiers_path, class: 'nav-link px-2 text-white' %></li>
         </ul>
         <ul class="nav col-3 col-lg-auto  mb-2 justify-content-end mb-md-0">
-        <%= current_manager.email %>
+        <%= current_manager.first_name %>
           <li><%= link_to 'Log Out', destroy_manager_session_path, method: :delete, class: 'nav-link px-2 text-white' %></li>
+        </ul>
+      <% elsif  cashier_signed_in? %>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><%= link_to 'Home', root_path, class: 'nav-link px-2 text-white' %></li>
+          <li><%= link_to 'Orders', orders_path, class: 'nav-link px-2 text-white' %></li>
+          <li><%= link_to 'Details', details_path, class: 'nav-link px-2 text-white' %></li>
+        </ul>
+        <ul class="nav col-3 col-lg-auto  mb-2 justify-content-end mb-md-0">
+        <%= current_cashier.first_name %>
+          <li><%= link_to 'Log Out', destroy_cashier_session_path, method: :delete, class: 'nav-link px-2 text-white' %></li>
         </ul>
       <% elsif  user_signed_in? %>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -36,13 +45,13 @@
           <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'nav-link px-2 text-white' %></li>
         </ul>
       <% else %>
-          <li><%= link_to 'Home', root_path, class: 'nav-link px-2 text-white' %></li>
-          <li><%= link_to 'Login as Amin', new_admin_session_path, class: 'nav-link px-2 text-white' %></li>
-          <li><%= link_to 'Login as Manager', new_manager_session_path, class: 'nav-link px-2 text-white' %></li> 
-          <li><%= link_to 'Login as User', new_user_session_path, class: 'nav-link px-2 text-white' %></li>  
+        <li><%= link_to 'Home', root_path, class: 'nav-link px-2 text-white' %></li>
+        <li><%= link_to 'Details', details_path, class: 'nav-link px-2 text-white' %></li>
+        <li><%= link_to 'Login as Amin', new_admin_session_path, class: 'nav-link px-2 text-white' %></li>
+        <li><%= link_to 'Login as Manager', new_manager_session_path, class: 'nav-link px-2 text-white' %></li> 
+        <li><%= link_to 'Login as Cashier', new_cashier_session_path, class: 'nav-link px-2 text-white' %></li>
+        <li><%= link_to 'Login as User', new_user_session_path, class: 'nav-link px-2 text-white' %></li>  
       <%end%>
-      
-     
     </nav>
   </div>
 </header>

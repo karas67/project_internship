@@ -23,5 +23,6 @@
     <% end %>
   </tbody>
 </table>
-
-<%= link_to 'New Detail', new_detail_path, class: 'btn btn-primary' %>
+<% if manager_signed_in? %>
+  <%= link_to 'New Detail', new_detail_path, class: 'btn btn-primary' %>
+<% end %>

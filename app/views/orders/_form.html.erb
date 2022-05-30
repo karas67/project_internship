@@ -23,15 +23,13 @@
     </span>
   </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :amount %>
-    <%= form.text_field :amount %>
-  </div>
+  <% @details.each do |detail| %>
+    <div class="field">
+    <%= form.label detail.name %>
+    <input placeholder="Введите что-нибудь!" type=number name='details[<%= detail.id %>][quantity]'>
+    <input type=hidden name='details[<%= detail.id %>][price]' value='<%= detail.price %>'>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>

@@ -15,7 +15,7 @@
 
 <p>
   <strong>Password:</strong>
-  <%= @cashier.password %>
+  <%= @cashier.encrypted_password %>
 </p>
 
 <%= link_to 'Edit', edit_cashier_path(@cashier) %>

@@ -1,6 +1,9 @@
 class OrdersController < ApplicationController
   before_action :order, only: %i[show edit update destroy]
   before_action :prepare_variables, only: %i[create edit new update]
+  #before_action :authorize_order!
+  #after_action :verify_authorized
+
   
   def index
     @orders = Order.all.page params[:page]
@@ -9,7 +12,6 @@ class OrdersController < ApplicationController
 
   def show
     @cashier = @order.cashier
-    #authorize(@order)
   end
 
   def new
@@ -66,5 +68,9 @@ class OrdersController < ApplicationController
 
   def order_params
     params.require(:order).permit(:cashier_id, :date, :name, :amount)
+  end
+
+  def authorize_order!
+    authorize(@order ||  Order)
   end
 end

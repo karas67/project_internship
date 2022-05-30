@@ -17,7 +17,7 @@
         <td><%= cashier.first_name %></td>
         <td><%= cashier.last_name %></td>
         <td><%= cashier.email %></td>
-        <td><%= cashier.password %></td>
+        <td><%= cashier.encrypted_password %></td>
         <td><%= link_to 'Show', cashier %></td>
         <td><%= link_to 'Edit', edit_cashier_path(cashier) %></td>
         <td><%= link_to 'Destroy', cashier, method: :delete, data: { confirm: 'Are you sure?' } %></td>

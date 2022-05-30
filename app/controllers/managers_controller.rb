@@ -15,6 +15,21 @@ class ManagersController < ApplicationController
   def edit
   end
 
+  def current_cashier
+    @manager =Manager.new(manager_params)
+
+    respond_to do |format|
+      if @manager.save
+        format.html { redirect_to manager_url(@manager), notice: "Manager was successfully created." }
+        format.json { render :show, status: :ok, location: @manager }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @manager.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
   # PATCH/PUT /managers/1 or /managers/1.json
   def update
     respond_to do |format|

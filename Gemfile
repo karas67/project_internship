@@ -31,6 +31,8 @@ gem 'pry-byebug'
 gem 'kaminari', '~> 1.2', '>= 1.2.2'
 gem 'pundit', '~> 2.2'
 gem "chartkick"
+gem 'jquery-rails'
+
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

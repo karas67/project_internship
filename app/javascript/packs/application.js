@@ -3,16 +3,13 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
-Rails.start()
-Turbolinks.start()
-ActiveStorage.start()
-
 require("../stylesheets/application.scss")
 require("@popperjs/core")
 require.context('../images', true)
 
 import "bootstrap"
-import 'bootstrap/js/dist/dropdown'
+import "bootstrap/js/dist/dropdown"
+
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import "chartkick/chart.js"
 
@@ -32,3 +29,8 @@ document.addEventListener("turbolinks:load", () => {
   return new Popover(popoverTriggerEl)
   })
 })
+
+Rails.start()
+Turbolinks.start()
+ActiveStorage.start()
+

@@ -40,6 +40,18 @@ class ApplicationPolicy
     user.is_a?(Admin)
   end
 
+  def is_manager?
+    user.is_a?(Manager)
+  end
+
+  def is_cashier?
+    user.is_a?(Cashier)
+  end
+
+  def is_user?
+    user.is_a?(User)
+  end
+
   class Scope
     def initialize(user, scope)
       @user = user

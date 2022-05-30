@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
-  
-  # before_action :authenticate_user!
-  include Pundit::Authorization
+  include Authorization
   include ErrorHandling
+  include Authentication
 end
  
