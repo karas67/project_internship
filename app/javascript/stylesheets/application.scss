@@ -33,12 +33,8 @@ table {
   margin-bottom: 15px;
 }
 
-header .container {
-  max-width: 90%;
-}
-header .container ul{
- display: flex;
- align-items: center;
+header ul {
+  margin: 0;
 }
 
 .statistics {
