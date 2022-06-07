@@ -32,6 +32,8 @@ gem 'kaminari', '~> 1.2', '>= 1.2.2'
 gem 'pundit', '~> 2.2'
 gem "chartkick"
 gem 'jquery-rails'
+gem 'font-awesome-sass', '~> 6.1'
+gem 'faker'
 
 
 group :development, :test do
@@ -40,7 +42,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'factory_bot_rails'
   gem 'database_cleaner'
-  gem 'faker'
   gem 'factory_bot'
 end
 

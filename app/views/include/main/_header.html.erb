@@ -1,104 +1,241 @@
 <header class="p-3 bg-dark text-white">
-  <nav class="d-flex flex-wrap align-items-center justify-content-between">
-    <% if admin_signed_in? %>
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><%= link_to 'Home', root_path, class: 'nav-link px-2 text-white' %></li>
-        <li><%= link_to 'Managers', managers_path, class: 'nav-link px-2 text-white' %></li>
-        <li><%= link_to 'Cashiers', cashiers_path, class: 'nav-link px-2 text-white' %></li>
-        <li><%= link_to 'Orders', orders_path, class: 'nav-link px-2 text-white' %></li>
-        <li><%= link_to 'Details', details_path, class: 'nav-link px-2 text-white' %></li>
-      </ul>
-      <ul class="nav col-3 col-lg-auto  mb-2 justify-content-end mb-md-0">
-        <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <%= current_admin.email %>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><%= link_to destroy_admin_session_path, method: :delete, class: 'dropdown-item' do %>Log Out<% end %></li>
-              </ul>
-          </li> 
-      </ul>
-    <% elsif  manager_signed_in? %>
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><%= link_to 'Home', root_path, class: 'nav-link px-2 text-white' %></li>
-        <li><%= link_to 'Orders', orders_path, class: 'nav-link px-2 text-white' %></li>
-        <li><%= link_to 'Details', details_path, class: 'nav-link px-2 text-white' %></li>
-        <li><%= link_to 'Cashiers', cashiers_path, class: 'nav-link px-2 text-white' %></li>
-      </ul>
-      <ul class="nav col-3 col-lg-auto  mb-2 justify-content-end mb-md-0">
-        <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <%= current_manager.first_name %>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><%= link_to destroy_manager_session_path, method: :delete, class: 'dropdown-item' do %>Log Out<% end %></li>
-              </ul>
-          </li> 
-      </ul>
-    <% elsif  cashier_signed_in? %>
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><%= link_to 'Home', root_path, class: 'nav-link px-2 text-white' %></li>
-        <li><%= link_to 'Orders', orders_path, class: 'nav-link px-2 text-white' %></li>
-        <li><%= link_to 'Details', details_path, class: 'nav-link px-2 text-white' %></li>
-      </ul>
-      <ul class="nav col-3 col-lg-auto  mb-2 justify-content-end mb-md-0">
-        <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <%= current_cashier.first_name %>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><%= link_to destroy_cashier_session_path, method: :delete, class: 'dropdown-item' do %>Log Out<% end %></li>
-              </ul>
-          </li> 
-      </ul> 
-    <% elsif  user_signed_in? %>
-      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><%= link_to 'Home', root_path, class: 'nav-link px-2 text-white' %></li>
-        <li><%= link_to 'Orders', orders_path, class: 'nav-link px-2 text-white' %></li>
-        <li><%= link_to 'Details', details_path, class: 'nav-link px-2 text-white' %></li>
-      </ul>
-      <ul class="nav col-3 col-lg-auto  mb-2 justify-content-end mb-md-0">
-        <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <%= current_user.email %>
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><%= link_to destroy_user_session_path, method: :delete, class: 'dropdown-item' do %>Log Out<% end %></li>
-              </ul>
-          </li> 
-      </ul>
-    <% else %>
-      <ul class="d-flex align-items-start">
-        <li><%= link_to 'Home', root_path, class: 'nav-link px-2 text-white' %></li>
-        <li><%= link_to 'Details', details_path, class: 'nav-link px-2 text-white' %></li>
-        <li class="nav-item dropdown">
+  <div class="container">
+    <nav class="navbar navbar-dark bg-dark">
+      <% if admin_signed_in? %>
+        <ul class="nav col-12 col-lg-auto mb-md-0">
+          <li>
+            <%= link_to root_path, class: 'nav-link px-2 text-white' do %>
+              <div class="fa fa-home"></div>
+              Home
+            <% end %>
+          </li>
+          <li>
+            <%= link_to details_path, class: 'nav-link px-2 text-white' do %>
+            <div class="fa fa-cog"></div>
+            Details
+            <% end %>
+          </li>
+          <li><%= link_to 'Managers', managers_path, class: 'nav-link px-2 text-white' %></li>
+          <li><%= link_to 'Cashiers', cashiers_path, class: 'nav-link px-2 text-white' %></li>
+          <li><%= link_to 'Orders', orders_path, class: 'nav-link px-2 text-white' %></li>
+        </ul>
+        <%= form_tag(details_path, method: :get) do %>
+          <div class="input-group">
+            <%= text_field_tag :name, params[:name], autocomplete: 'off', placeholder: "Search", class: 'form-control me-2' %>
+            <span class="input-group-append">
+              <button class="btn btn-outline-success btn-outline-light" type="submit">
+                <span aria-hidden="true" class="fa fa-search"></span>
+              </button>
+            </span>
+          </div>
+        <% end %>
+        <ul class="nav col-3 col-lg-auto  mb-2 justify-content-end mb-md-0">
+          <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <%= current_admin.email %>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                    <div class="fa fa-sign-out-alt"></div>
+                    <b>Sign out</b>
+                  <% end %>
+                </ul>
+            </li> 
+        </ul>
+      <% elsif  manager_signed_in? %>
+        <ul class="nav col-12 col-lg-auto mb-md-0">
+          <li>
+            <%= link_to root_path, class: 'nav-link px-2 text-white' do %>
+              <div class="fa fa-home"></div>
+              Home
+            <% end %>
+          </li>
+          <li>
+            <%= link_to details_path, class: 'nav-link px-2 text-white' do %>
+            <div class="fa fa-cog"></div>
+            Details
+            <% end %>
+          </li>
+          <li><%= link_to 'Orders', orders_path, class: 'nav-link px-2 text-white' %></li>
+          <li><%= link_to 'Cashiers', cashiers_path, class: 'nav-link px-2 text-white' %></li>
+        </ul>
+        <%= form_tag(details_path, method: :get) do %>
+          <div class="input-group">
+            <%= text_field_tag :name, params[:name], autocomplete: 'off', placeholder: "Search", class: 'form-control me-2' %>
+            <span class="input-group-append">
+              <button class="btn btn-outline-success btn-outline-light" type="submit">
+                <span aria-hidden="true" class="fa fa-search"></span>
+              </button>
+            </span>
+          </div>
+        <% end %>
+        <ul class="nav col-3 col-lg-auto  mb-2 justify-content-end mb-md-0">
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Admin
+              <%= current_manager.first_name %>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><%= link_to new_admin_session_path, class: 'dropdown-item' do %>Login In<% end %></li>
-              <li><%= link_to new_admin_registration_path, class: 'dropdown-item' do %>Sing Up<% end %></li>
+              <%= link_to destroy_manager_session_path, method: :delete, class: "dropdown-item" do %>
+                <div class="fa fa-sign-out-alt"></div>
+                <b>Sign out</b>
+              <% end %>
             </ul>
-        </li> 
-        <li class="nav-item dropdown">
+          </li> 
+        </ul>
+      <% elsif  cashier_signed_in? %>
+        <ul class="nav col-12 col-lg-auto mb-md-0">
+          <li>
+            <%= link_to root_path, class: 'nav-link px-2 text-white' do %>
+              <div class="fa fa-home"></div>
+              Home
+            <% end %>
+          </li>
+          <li>
+            <%= link_to details_path, class: 'nav-link px-2 text-white' do %>
+            <div class="fa fa-cog"></div>
+            Details
+            <% end %>
+          </li>
+          <li><%= link_to 'Orders', orders_path, class: 'nav-link px-2 text-white' %></li>
+        </ul>
+        <%= form_tag(details_path, method: :get) do %>
+          <div class="input-group">
+            <%= text_field_tag :name, params[:name], autocomplete: 'off', placeholder: "Search", class: 'form-control me-2' %>
+            <span class="input-group-append">
+              <button class="btn btn-outline-success btn-outline-light" type="submit">
+                <span aria-hidden="true" class="fa fa-search"></span>
+              </button>
+            </span>
+          </div>
+        <% end %>
+        <ul class="nav col-3 col-lg-auto  mb-2 justify-content-end mb-md-0">
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Manager
+              <%= current_cashier.first_name %>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><%= link_to new_manager_session_path, class: 'dropdown-item' do %>Login In<% end %></li>
-              <li><%= link_to new_manager_registration_path, class: 'dropdown-item' do %>Sing Up<% end %></li>
+              <%= link_to destroy_cashier_session_path, method: :delete, class: "dropdown-item" do %>
+                <div class="fa fa-sign-out-alt"></div>
+                <b>Sign out</b>
+              <% end %>
             </ul>
-        </li> 
-        <li class="nav-item dropdown">
+          </li> 
+        </ul> 
+      <% elsif  user_signed_in? %>
+        <ul class="nav col-12 col-lg-auto mb-md-0">
+          <li>
+            <%= link_to root_path, class: 'nav-link px-2 text-white' do %>
+              <div class="fa fa-home"></div>
+              Home
+            <% end %>
+          </li>
+          <li>
+            <%= link_to details_path, class: 'nav-link px-2 text-white' do %>
+            <div class="fa fa-cog"></div>
+            Details
+            <% end %>
+          </li>
+          <li><%= link_to 'Orders', orders_path, class: 'nav-link px-2 text-white' %></li>
+        </ul>
+        <%= form_tag(details_path, method: :get) do %>
+          <div class="input-group">
+            <%= text_field_tag :name, params[:name], autocomplete: 'off', placeholder: "Search", class: 'form-control me-2' %>
+            <span class="input-group-append">
+              <button class="btn btn-outline-success btn-outline-light" type="submit">
+                <span aria-hidden="true" class="fa fa-search"></span>
+              </button>
+            </span>
+          </div>
+        <% end %>
+        <ul class="nav col-3 col-lg-auto  mb-2 justify-content-end mb-md-0">
+          <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              User
+              <%= current_user.email %>
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <li><%= link_to new_user_session_path, class: 'dropdown-item' do %>Login In<% end %></li>
-              <li><%= link_to new_user_registration_path, class: 'dropdown-item' do %>Sing Up<% end %></li>
+              <%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do %>
+                <div class="fa fa-sign-out-alt"></div>
+                <b>Sign out</b>
+              <% end %>
             </ul>
-        </li> 
-      </ul>
-    <%end%>
-  </nav>
+          </li> 
+        </ul>
+      <% else %>
+        <ul class="nav col-12 col-lg-auto mb-md-0">
+          <li>
+            <%= link_to root_path, class: 'nav-link px-2 text-white' do %>
+              <div class="fa fa-home"></div>
+              Home
+            <% end %>
+          </li>
+          <li>
+            <%= link_to details_path, class: 'nav-link px-2 text-white' do %>
+            <div class="fa fa-cog"></div>
+            Details
+            <% end %>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Admin
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><%= link_to new_admin_session_path, class: 'dropdown-item' do %>
+                  <div class="fa-solid fa-user"></div>
+                  Login In
+                  <% end %>
+                </li>
+                <li><%= link_to new_admin_registration_path, class: 'dropdown-item' do %>
+                  <div class="fa-solid fa-user-plus"></div>
+                  Sing Up<% end %>
+                </li>
+              </ul>
+          </li> 
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Manager
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><%= link_to new_manager_session_path, class: 'dropdown-item' do %>
+                  <div class="fa-solid fa-user"></div>
+                  Login In
+                  <% end %>
+                </li>
+                <li><%= link_to new_manager_registration_path, class: 'dropdown-item' do %>
+                  <div class="fa-solid fa-user-plus"></div>
+                  Sing Up
+                  <% end %>
+                </li>
+              </ul>
+          </li>
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                User
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><%= link_to new_user_session_path, class: 'dropdown-item' do %>
+                  <div class="fa-solid fa-user"></div>
+                  Login In
+                  <% end %>
+                </li>
+                <li><%= link_to new_user_registration_path, class: 'dropdown-item' do %>
+                  <div class="fa-solid fa-user-plus"></div>
+                  Sing Up
+                  <% end %>
+                </li>
+              </ul>
+          </li>
+        </ul>
+        <%= form_tag(details_path, method: :get) do %>
+          <div class="input-group">
+            <%= text_field_tag :name, params[:name], autocomplete: 'off', placeholder: "Search", class: 'form-control me-2' %>
+            <span class="input-group-append">
+              <button class="btn btn-outline-success btn-outline-light" type="submit">
+                <span aria-hidden="true" class="fa fa-search"></span>
+              </button>
+            </span>
+          </div>
+        <% end %>
+      <%end%>
+    </nav>
+  </div>
 </header>

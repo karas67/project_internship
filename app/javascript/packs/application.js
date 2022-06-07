@@ -10,6 +10,7 @@ ActiveStorage.start()
 require("../stylesheets/application.scss")
 require("@popperjs/core")
 require.context('../images', true)
+import '@fortawesome/fontawesome-free/css/all'
 
 import "bootstrap"
 

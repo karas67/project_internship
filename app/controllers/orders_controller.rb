@@ -12,6 +12,7 @@ class OrdersController < ApplicationController
 
   def show
     @cashier = @order.cashier
+    #@detail = @order.detail
   end
 
   def new
@@ -24,6 +25,8 @@ class OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
+
+
     respond_to do |format|
       if @order.save
         format.html { redirect_to order_url(@order), notice: "Order was successfully created." }

@@ -2,7 +2,11 @@ class DetailsController < ApplicationController
   before_action :detail, only: %i[show edit update destroy]
 
   def index
-    @details = Detail.all
+    if params[:name]
+      @details = Detail.where('name ILIKE ?', "%#{params[:name]}%") #case-insensitive
+    else
+      @details = Detail.all
+    end
   end
 
   def show; end
